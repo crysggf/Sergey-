@@ -1,0 +1,19 @@
+Баг репорт: Неверная реализация функции удаления символа(TypeError)
+
+ID/Заголовок: Ошибка TypeError при вызове delete_symbol c целочисленным индексом.
+Проект/файл string_utils.py
+
+Серьезность : Средняя
+
+Окружение: OC Windows, Python 3.14.6, pytest 9.1.1
+
+Шаги для воспроизведения:
+1. Открыть файл 04_lesson/ test_string_utils.py 
+2.Запустить набор тестов для метода delete_symbol (Например: test_delete_symbol_positive или test_delete_symbol_neganive). 
+3. Выполнить команду pytest -v в терминале.
+
+Ожидаемый результат:
+Функция delete_symbol(input_str, index) должна удалить символ из строки input_str по переданному целочисленному индексу и корректно вернуть новую строку.
+
+Фактический результат:
+Происходит падение тестов с ошибкой TypeError: index() argument 1 must be str, not int. Тесты завершаются со статусом FAILED.
