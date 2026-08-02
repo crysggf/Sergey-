@@ -67,19 +67,19 @@ def test_contains_negative(string, substring, expected):
 
 
 @pytest.mark.positive
-@pytest.mark.parametrize("input_str, index, expected", [
-    ("hello", 0, "ello"),
-    ("hello", 4, "hell"),
-    ("abcde", 1, "acde"),
+@pytest.mark.parametrize("input_str, symbol, expected", [
+    ("hello", "h", "ello"),
+    ("hello", "o", "hell"),
+    ("abcde", "b", "acde"),
 ])
-def test_delete_symbol_positive(input_str, index, expected):
-    assert string_utils.delete_symbol(input_str, index) == expected
+def test_delete_symbol_positive(input_str, symbol, expected):
+    assert string_utils.delete_symbol(input_str, symbol) == expected
 
 
 @pytest.mark.negative
-@pytest.mark.parametrize("input_str, index, expected", [
-    ("hello", 5, "hello"),
-    ("", 0, ""),
+@pytest.mark.parametrize("input_str, symbol, expected", [
+    ("hello", "x", "hello"),
+    ("", "a", ""),
 ])
-def test_delete_symbol_negative(input_str, index, expected):
-    assert string_utils.delete_symbol(input_str, index) == expected
+def test_delete_symbol_negative(input_str, symbol, expected):
+    assert string_utils.delete_symbol(input_str, symbol) == expected
