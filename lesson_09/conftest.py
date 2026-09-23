@@ -5,9 +5,11 @@ from sqlalchemy import text
 
 from db import get_engine
 
+
 @pytest.fixture(scope="session")
 def engine():
     return get_engine()
+
 
 @pytest.fixture
 def subject_factory(engine):
