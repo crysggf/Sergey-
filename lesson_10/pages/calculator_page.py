@@ -72,6 +72,22 @@ class CalculatorPage:
             button.click()
         return self
 
+    def wait_for_result(self, expected_result: str) -> "CalculatorPage":
+        """
+        Дождаться появления ожидаемого результата на экране.
+
+        :param expected_result: ожидаемое значение результата
+        :type expected_result: str
+        :return: экземпляр текущей страницы
+        :rtype: CalculatorPage
+        """
+        self.wait.until(
+            lambda driver: driver.find_element(
+                *self.RESULT_SCREEN
+            ).text == expected_result
+        )
+        return self
+
     def get_result(self) -> str:
         """
         Получить результат вычислений с экрана калькулятора.

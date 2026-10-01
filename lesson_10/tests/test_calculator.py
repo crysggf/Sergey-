@@ -1,6 +1,5 @@
 """Тесты для калькулятора."""
 
-import time
 import allure
 from pages.calculator_page import CalculatorPage
 
@@ -19,8 +18,8 @@ def test_calculator_with_delay(driver):
     with allure.step("Открыть страницу калькулятора"):
         calculator.open()
 
-    with allure.step("Установить задержку 3 секунды"):
-        calculator.set_delay(3)
+    with allure.step("Установить задержку 5 секунд"):
+        calculator.set_delay(5)
 
     with allure.step("Нажать кнопки 7 + 8 ="):
         calculator.click_button('7')
@@ -28,8 +27,8 @@ def test_calculator_with_delay(driver):
         calculator.click_button('8')
         calculator.click_button('=')
 
-    with allure.step("Подождать вычисления результата"):
-        time.sleep(4)
+    with allure.step("Дождаться появления результата 15"):
+        calculator.wait_for_result("15")
 
     with allure.step("Получить результат"):
         result = calculator.get_result()
